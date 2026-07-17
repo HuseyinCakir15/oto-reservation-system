@@ -1,8 +1,8 @@
 package com.otores.api.entity;
 
-public enum Role{
+public enum Role {
 
-    user,
-    moderator,
-    admin
+    USER,
+    MODERATOR,
+    ADMIN
 }
