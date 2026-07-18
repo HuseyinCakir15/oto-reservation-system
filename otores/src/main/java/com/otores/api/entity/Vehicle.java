@@ -3,6 +3,7 @@ package com.otores.api.entity;
 import lombok.*;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import com.otores.api.entity.VehicleStatus;
 
 @Entity
 @Table(name = "vehicles")
@@ -25,6 +26,9 @@ public class Vehicle {
     private int year;
     @Column(name = "chassis_no", nullable = false, unique = true)
     private String chassisNo;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private VehicleStatus status = VehicleStatus.ACTIVE;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)

@@ -28,9 +28,13 @@ public class User {
     @Column(unique = true, nullable = false)
     private String phone;
     @Enumerated(EnumType.STRING)
-    private Role role;
+    @Column(name = "role", nullable = false)
+    private Role role = Role.USER;
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private Status status = Status.ACTIVE;
 
     @PrePersist
     protected void onCreate() {
